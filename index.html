@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="YouthCravings - Snack & cemilan ringan sehat ala Gen Z. Kreatif, menarik, dan enak!">
+  <meta name="theme-color" content="#7EC8E3">
+  <title>YouthCravings | Snack Sehat Ala Gen Z</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Euphoria+Script&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+</head>
+<body>
+  <!-- Background Music -->
+  <audio id="bgMusic" loop preload="auto">
+    <source src="audio/bg-music.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Promo Banner -->
+  <div class="promo-banner" id="promoBanner">
+    <div class="promo-content">
+      <span class="promo-badge">🔥 FLASH SALE</span>
+      <span class="promo-text" data-i18n="promo_text">Diskon 20% semua snack! Berakhir dalam</span>
+      <div class="countdown" id="countdown">
+        <span id="cdHours">00</span>:<span id="cdMins">00</span>:<span id="cdSecs">00</span>
+      </div>
+    </div>
+    <button class="promo-close" id="promoClose" aria-label="Close"><i class="fas fa-times"></i></button>
+  </div>
+
+  <!-- Navbar -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#home" class="logo">
+        <span class="logo-icon">🍿</span>
+        <span class="logo-text">
+          <span class="logo-youth">Youth</span><span class="logo-cravings">Cravings</span>
+        </span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#home" data-i18n="nav_home">Beranda</a>
+        <a href="#about" data-i18n="nav_about">Tentang</a>
+        <a href="#products" data-i18n="nav_products">Produk</a>
+        <a href="#quiz" data-i18n="nav_quiz">Quiz</a>
+        <a href="#reviews" data-i18n="nav_reviews">Review</a>
+        <a href="#track" data-i18n="nav_track">Lacak</a>
+        <a href="#order" data-i18n="nav_order">Pesan</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="nav-icon-btn" id="darkModeToggle" title="Dark Mode">
+          <i class="fas fa-moon"></i>
+        </button>
+        <button class="lang-btn" id="langToggle" title="Translate">
+          <i class="fas fa-globe"></i> <span id="langLabel">EN</span>
+        </button>
+        <button class="nav-icon-btn" id="wishlistToggle" title="Wishlist">
+          <i class="fas fa-heart"></i>
+          <span class="badge-count" id="wishCount">0</span>
+        </button>
+        <button class="cart-btn" id="cartToggle" title="Keranjang">
+          <i class="fas fa-shopping-bag"></i>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <div class="hero-bg"></div>
+    <div class="container hero-content">
+      <div class="hero-text fade-in">
+        <span class="badge" data-i18n="hero_badge">✨ Snack Sehat Gen Z</span>
+        <h1 data-i18n="hero_title">Cemilan Ringan yang <span>Bikin Happy</span> & Sehat</h1>
+        <p data-i18n="hero_desc">YouthCravings hadir dengan snack kreatif, rendah kalori, dan penuh rasa. Cocok buat yang suka ngemil tapi tetap peduli kesehatan.</p>
+        <div class="hero-btns">
+          <a href="#products" class="btn btn-primary" data-i18n="hero_cta">Lihat Produk</a>
+          <a href="#quiz" class="btn btn-outline" data-i18n="hero_quiz">Coba Quiz</a>
+        </div>
+      </div>
+      <div class="hero-visual fade-in delay">
+        <div class="snack-card snack-1"><span>🌿</span><p>Seaweed Crunch</p></div>
+        <div class="snack-card snack-2"><span>🍓</span><p>Berry Bites</p></div>
+        <div class="snack-card snack-3"><span>🧀</span><p>Cheese Puff</p></div>
+      </div>
+    </div>
+    <div class="scroll-indicator"><span></span></div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="about">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-tag" data-i18n="about_tag">Tentang Kami</span>
+        <h2 data-i18n="about_title">Snack yang Bikin Kamu <span>Craving</span> Tanpa Rasa Bersalah</h2>
+        <p data-i18n="about_desc">Kami percaya ngemil itu hak setiap Gen Z. Makanya YouthCravings bikin cemilan ringan yang enak, kreatif, dan tetap sehat.</p>
+      </div>
+      <div class="about-grid">
+        <div class="about-card fade-in">
+          <div class="icon-box"><i class="fas fa-leaf"></i></div>
+          <h3 data-i18n="about_1_title">Bahan Natural</h3>
+          <p data-i18n="about_1_desc">Tanpa pengawet berlebih. Dipilih dari bahan berkualitas.</p>
+        </div>
+        <div class="about-card fade-in delay">
+          <div class="icon-box"><i class="fas fa-fire"></i></div>
+          <h3 data-i18n="about_2_title">Rasa Kekinian</h3>
+          <p data-i18n="about_2_desc">Flavor yang sedang hits di kalangan Gen Z.</p>
+        </div>
+        <div class="about-card fade-in delay2">
+          <div class="icon-box"><i class="fas fa-heart"></i></div>
+          <h3 data-i18n="about_3_title">Low Guilt</h3>
+          <p data-i18n="about_3_desc">Ringan di perut, tapi tetap memuaskan craving.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products -->
+  <section id="products" class="products">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-tag" data-i18n="products_tag">Produk Kami</span>
+        <h2 data-i18n="products_title">Pilih Snack Favoritmu</h2>
+        <p data-i18n="products_desc">Semua produk fresh, ready to ship, dan siap bikin harimu lebih ceria.</p>
+      </div>
+      <!-- Filters -->
+      <div class="filter-bar fade-in">
+        <button class="filter-btn active" data-filter="all" data-i18n="filter_all">Semua</button>
+        <button class="filter-btn" data-filter="sehat" data-i18n="filter_healthy">Sehat</button>
+        <button class="filter-btn" data-filter="pedas" data-i18n="filter_spicy">Pedas</button>
+        <button class="filter-btn" data-filter="best" data-i18n="filter_best">Best Seller</button>
+        <button class="filter-btn" data-filter="baru" data-i18n="filter_new">Baru</button>
+      </div>
+      <div class="products-grid" id="productsGrid"></div>
+    </div>
+  </section>
+
+  <!-- Quiz -->
+  <section id="quiz" class="quiz-section">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-tag" data-i18n="quiz_tag">Fun Quiz</span>
+        <h2 data-i18n="quiz_title">Snack Mana yang Cocok Buatmu?</h2>
+        <p data-i18n="quiz_desc">Jawab 4 pertanyaan singkat, kami rekomendasikan snack perfect buat mood-mu!</p>
+      </div>
+      <div class="quiz-card fade-in" id="quizCard">
+        <div class="quiz-progress">
+          <div class="quiz-progress-bar" id="quizProgress"></div>
+        </div>
+        <div id="quizContent">
+          <!-- injected by JS -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Us -->
+  <section id="why" class="why">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-tag" data-i18n="why_tag">Kenapa YouthCravings?</span>
+        <h2 data-i18n="why_title">Lebih dari Sekadar Snack</h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-item fade-in"><i class="fas fa-truck-fast"></i><h3 data-i18n="why_1_title">Pengiriman Cepat</h3><p data-i18n="why_1_desc">Order hari ini, bisa sampai besok (area tertentu).</p></div>
+        <div class="why-item fade-in delay"><i class="fas fa-shield-halved"></i><h3 data-i18n="why_2_title">Higienis & Aman</h3><p data-i18n="why_2_desc">Dikemas rapi dan aman untuk dikonsumsi.</p></div>
+        <div class="why-item fade-in delay2"><i class="fas fa-star"></i><h3 data-i18n="why_3_title">Review Positif</h3><p data-i18n="why_3_desc">Sudah dicoba ratusan Gen Z dan mereka suka!</p></div>
+        <div class="why-item fade-in delay3"><i class="fas fa-gift"></i><h3 data-i18n="why_4_title">Kemasan Aesthetic</h3><p data-i18n="why_4_desc">Cocok buat foto & share di social media.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews Slider -->
+  <section id="reviews" class="reviews">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-tag" data-i18n="reviews_tag">Testimoni</span>
+        <h2 data-i18n="reviews_title">Apa Kata Mereka?</h2>
+      </div>
+      <div class="reviews-wrapper fade-in">
+        <button class="review-nav prev" id="reviewPrev"><i class="fas fa-chevron-left"></i></button>
+        <div class="reviews-track" id="reviewsTrack"></div>
+        <button class="review-nav next" id="reviewNext"><i class="fas fa-chevron-right"></i></button>
+      </div>
+      <div class="review-dots" id="reviewDots"></div>
+    </div>
+  </section>
+
+  <!-- Order Tracking -->
+  <section id="track" class="track-section">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-tag" data-i18n="track_tag">Lacak Pesanan</span>
+        <h2 data-i18n="track_title">Cek Status Orderanmu</h2>
+        <p data-i18n="track_desc">Masukkan nomor order (contoh: YC-1001, YC-1002, YC-1003)</p>
+      </div>
+      <div class="track-card fade-in">
+        <div class="track-input-group">
+          <input type="text" id="trackInput" placeholder="YC-XXXX" maxlength="10">
+          <button class="btn btn-primary" id="trackBtn" data-i18n="track_btn">Lacak</button>
+        </div>
+        <div class="track-result" id="trackResult" hidden></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Order CTA -->
+  <section id="order" class="order-section">
+    <div class="container">
+      <div class="order-card fade-in">
+        <div class="order-content">
+          <h2 data-i18n="order_title">Siap Order Sekarang?</h2>
+          <p data-i18n="order_desc">Pilih snack favoritmu, masukkan ke keranjang, lalu chat kami via WhatsApp. Proses cepat & mudah!</p>
+          <div class="order-actions">
+            <a href="#products" class="btn btn-primary" data-i18n="order_browse">Pilih Produk</a>
+            <a href="https://wa.me/6281310937825?text=Hai%20YouthCravings!%20%F0%9F%91%8B%F0%9F%92%99%0AAku%20mau%20order%20nih%20%F0%9F%98%8A%E2%9C%A8"
+               class="btn btn-wa" target="_blank" rel="noopener">
+              <i class="fab fa-whatsapp"></i> <span data-i18n="order_wa">Chat WhatsApp</span>
+            </a>
+          </div>
+        </div>
+        <div class="order-visual">
+          <div class="floating-snack">🍿</div>
+          <div class="floating-snack delay">🍓</div>
+          <div class="floating-snack delay2">🧀</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#home" class="logo">
+            <span class="logo-icon">🍿</span>
+            <span class="logo-text">
+              <span class="logo-youth">Youth</span><span class="logo-cravings">Cravings</span>
+            </span>
+          </a>
+          <p data-i18n="footer_tagline">Snack sehat & kreatif buat Gen Z yang suka ngemil tanpa rasa bersalah.</p>
+        </div>
+        <div class="footer-links">
+          <h4 data-i18n="footer_nav">Navigasi</h4>
+          <a href="#home" data-i18n="nav_home">Beranda</a>
+          <a href="#products" data-i18n="nav_products">Produk</a>
+          <a href="#quiz" data-i18n="nav_quiz">Quiz</a>
+          <a href="#order" data-i18n="nav_order">Pesan</a>
+        </div>
+        <div class="footer-contact">
+          <h4 data-i18n="footer_contact">Hubungi Kami</h4>
+          <a href="https://wa.me/6281310937825" target="_blank" rel="noopener">
+            <i class="fab fa-whatsapp"></i> 0813-1093-7825
+          </a>
+          <p data-i18n="footer_hours">Senin - Minggu: 09.00 - 21.00</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 YouthCravings. <span data-i18n="footer_rights">All rights reserved.</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cart Sidebar -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h3 data-i18n="cart_title">Keranjang</h3>
+      <button class="close-cart" id="closeCart"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span data-i18n="cart_total">Total</span>
+        <strong id="cartTotal">Rp 0</strong>
+      </div>
+      <button class="btn btn-primary btn-checkout" id="checkoutBtn" data-i18n="cart_checkout">Checkout via WhatsApp</button>
+      <button class="btn btn-outline btn-clear" id="clearCart" data-i18n="cart_clear">Kosongkan</button>
+    </div>
+  </aside>
+
+  <!-- Wishlist Sidebar -->
+  <aside class="cart-sidebar wishlist-sidebar" id="wishSidebar">
+    <div class="cart-header">
+      <h3 data-i18n="wish_title">Wishlist</h3>
+      <button class="close-cart" id="closeWish"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="cart-items" id="wishItems"></div>
+  </aside>
+
+  <!-- Share Modal -->
+  <div class="modal-overlay" id="shareModal">
+    <div class="modal-box">
+      <button class="modal-close" id="shareClose"><i class="fas fa-times"></i></button>
+      <h3 data-i18n="share_title">Share Snack Ini</h3>
+      <p id="shareProductName"></p>
+      <div class="share-btns">
+        <a class="share-btn ig" id="shareIG" target="_blank" rel="noopener"><i class="fab fa-instagram"></i> Instagram</a>
+        <a class="share-btn tt" id="shareTT" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i> TikTok</a>
+        <a class="share-btn wa" id="shareWA" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        <button class="share-btn copy" id="shareCopy"><i class="fas fa-copy"></i> <span data-i18n="share_copy">Copy Link</span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Buttons -->
+  <div class="floating-btns">
+    <button class="float-btn" id="autoScrollBtn" title="Auto Scroll">
+      <i class="fas fa-arrows-up-down"></i>
+      <span class="float-tooltip" data-i18n="tooltip_scroll">Auto Scroll</span>
+    </button>
+    <button class="float-btn" id="musicBtn" title="Musik">
+      <i class="fas fa-music"></i>
+      <span class="float-tooltip" data-i18n="tooltip_music">Musik</span>
+    </button>
+    <a href="https://wa.me/6281310937825?text=Hai%2C%20YouthCravings!%20%F0%9F%91%8B%F0%9F%92%99%0AAku%20sedang%20mengalami%20kendala%20terkait%20pesananku.%20Boleh%20minta%20bantuan%2C%20ya%3F%20%F0%9F%A5%B9%E2%9C%A8%0ATerima%20kasih!"
+       class="float-btn wa-float" target="_blank" rel="noopener" title="WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+      <span class="float-tooltip">WhatsApp</span>
+    </a>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js').catch(() => {});
+    }
+  </script>
+</body>
+</html>
