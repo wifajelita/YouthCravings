@@ -7,6 +7,7 @@ const products = [
     desc: { id: "Keripik rumput laut renyah, rendah kalori & kaya mineral.", en: "Crispy seaweed chips, low calorie & mineral rich." },
     price: 18000,
     emoji: "🌿",
+    image: "images/seaweed-crunch.jpg",
     badge: { id: "Best Seller", en: "Best Seller" },
     tags: ["sehat", "best"],
     stock: 8
@@ -261,7 +262,7 @@ function renderProducts() {
       <div class="product-img">
         ${p.badge ? `<span class="product-badge">${p.badge[currentLang]}</span>` : ""}
         ${lowStock ? `<span class="product-stock">${translations[currentLang].stock_left} ${p.stock}</span>` : ""}
-        <span>${p.emoji}</span>
+        ${p.image ? `<img src="${p.image}" alt="${p.name[currentLang]}" loading="lazy">` : `<span>${p.emoji}</span>`}
         <div class="product-actions-top">
           <button class="prod-icon-btn ${liked ? "liked" : ""}" onclick="toggleWish(${p.id})" title="Wishlist">
             <i class="fas fa-heart"></i>
@@ -595,20 +596,21 @@ function toggleAutoScroll() {
   autoScrollActive = !autoScrollActive;
   document.getElementById("autoScrollBtn").classList.toggle("active", autoScrollActive);
   if (autoScrollActive) {
-    const sections = ["home", "about", "products", "quiz", "why", "reviews", "track", "order"];
-    let idx = 0;
-    const scrollY = window.scrollY;
-    sections.forEach((id, i) => {
-      const el = document.getElementById(id);
-      if (el && el.offsetTop - 120 <= scrollY) idx = i;
-    });
+    // Slow continuous scroll kebawah
     autoScrollInterval = setInterval(() => {
-      idx = (idx + 1) % sections.length;
-      const el = document.getElementById(sections[idx]);
-      if (el) el.scrollIntoView({ behavior: "smooth" });
-    }, 5000);
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      const current = window.scrollY;
+      if (current >= maxScroll - 2) {
+        // Sampai bawah → balik ke atas pelan
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } else {
+        // Scroll pelan ~1.2px tiap frame interval
+        window.scrollBy({ top: 1.5, behavior: "auto" });
+      }
+    }, 30); // ~50px/detik = slow smooth
   } else {
     clearInterval(autoScrollInterval);
+    autoScrollInterval = null;
   }
 }
 

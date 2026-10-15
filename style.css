@@ -6,10 +6,10 @@
   --yellow: #FFE566;
   --yellow-dark: #F5D76E;
   --white: #FFFFFF;
-  --off-white: #FAFBFC;
+  --off-white: #FFFBF0;
   --text: #2D3748;
   --text-light: #718096;
-  --bg: #FAFBFC;
+  --bg: #FFFBF0;
   --card-bg: #FFFFFF;
   --shadow: 0 10px 40px rgba(78, 163, 199, 0.12);
   --shadow-sm: 0 4px 20px rgba(78, 163, 199, 0.08);
@@ -30,7 +30,7 @@
   --off-white: #12121F;
   --text: #E8E8F0;
   --text-light: #A0A0B8;
-  --bg: #12121F;
+  --bg: #16161F;
   --card-bg: #1A1A2E;
   --shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
   --shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.3);
@@ -51,7 +51,7 @@ html { scroll-behavior: smooth; font-size: 16px; }
 
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background: var(--bg);
+  background: var(--bg); /* soft yellow cheerful */
   color: var(--text);
   line-height: 1.6;
   overflow-x: hidden;
@@ -142,7 +142,10 @@ body:not(.has-promo) { padding-top: var(--nav-h); }
   font-family: 'Yunyun', 'Fredoka', sans-serif;
   font-weight: 600;
   font-size: 1.4rem;
-  color: var(--text);
+  background: linear-gradient(135deg, var(--blue-dark), #3d9bc4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   letter-spacing: -0.5px;
 }
 .logo-cravings {
@@ -261,7 +264,7 @@ body:not(.has-promo) { padding-top: var(--nav-h); }
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(160deg, var(--blue-light) 0%, var(--bg) 50%, #FFF9E6 100%);
+  background: linear-gradient(160deg, #E8F6FB 0%, #FFFBF0 40%, #FFF3D0 100%);
   z-index: -1;
   transition: background 0.35s;
 }
@@ -454,13 +457,19 @@ section { padding: 85px 0; }
 }
 
 .product-img {
-  height: 170px;
+  height: 180px;
   background: linear-gradient(135deg, var(--blue-light), #FFF9E6);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 4.2rem;
   position: relative;
+  overflow: hidden;
+}
+.product-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 [data-theme="dark"] .product-img {
   background: linear-gradient(135deg, #1A2F3A, #2A2A1A);
@@ -474,6 +483,7 @@ section { padding: 85px 0; }
   font-weight: 700;
   padding: 3px 9px;
   border-radius: 20px;
+  z-index: 2;
 }
 .product-stock {
   position: absolute;
@@ -484,12 +494,14 @@ section { padding: 85px 0; }
   font-weight: 700;
   padding: 3px 8px;
   border-radius: 20px;
+  z-index: 2;
 }
 .product-actions-top {
   position: absolute;
   bottom: 10px; right: 10px;
   display: flex;
   gap: 6px;
+  z-index: 2;
 }
 .prod-icon-btn {
   width: 34px; height: 34px;
@@ -802,7 +814,12 @@ section { padding: 85px 0; }
   padding-bottom: 36px;
   border-bottom: 1px solid rgba(255,255,255,0.1);
 }
-.footer .logo-youth { color: white; }
+.footer .logo-youth {
+  background: linear-gradient(135deg, #7EC8E3, #FFE566);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
 .footer .logo-cravings { color: var(--blue); }
 .footer-brand p { margin-top: 12px; font-size: 0.9rem; max-width: 270px; }
 .footer-links h4, .footer-contact h4 { color: white; margin-bottom: 14px; font-size: 0.95rem; }
